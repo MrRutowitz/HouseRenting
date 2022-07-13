@@ -11,7 +11,10 @@ public class RentalDetails {
     private Long prize;
     private Date rentalPeriod;
 
-    @OneToOne
+    @ManyToOne
+    private Landlord landlord;
+
+    @ManyToOne
     private Flat flat;
 
     public RentalDetails() {
@@ -39,6 +42,14 @@ public class RentalDetails {
 
     public void setRentalPeriod(Date rentalPeriod) {
         this.rentalPeriod = rentalPeriod;
+    }
+
+    public Landlord getLandlord() {
+        return landlord;
+    }
+
+    public void setLandlord(Landlord landlord) {
+        this.landlord = landlord;
     }
 
     public Flat getFlat() {

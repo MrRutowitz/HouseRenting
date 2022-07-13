@@ -50,16 +50,30 @@ public class FlatController {
         model.addAttribute("flats", flatRepository.findAll());
         return "list";
     }
+
+
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public String editBook(@RequestParam Long id, Model model) {
+        model.addAttribute("flat", flatDao.findAll());
+        return "edit";
+    }
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String update(Flat flat, Model model) {
         flatDao.update(flat);
+    //    flatRepository.save(flat);
+
         return "redirect:/list";
     }
 
-    @RequestMapping(value = "/confirm", method = RequestMethod.GET)
-    public String confirm(@RequestParam Long id, Model model) {
-        model.addAttribute("id", id);
-        return "confirm";
+//    @RequestMapping(value = "/confirm", method = RequestMethod.GET)
+//    public String confirm(@RequestParam Long id, Model model) {
+//        model.addAttribute("id", id);
+//        return "confirm";
+//    }
+    @RequestMapping(value = "/remove", method = RequestMethod.GET)
+    public String remove(@RequestParam Long id) {
+        flatRepository.deleteById(id);
+        return "redirect:/list";
     }
 
 

@@ -16,7 +16,7 @@ public class FlatService {
         this.flatDao = flatDao;
     }
 
-    public void save(Flat flat) {
-        flatDao.save(flat);
-    }
+//    public void save(Flat flat) {
+//        flatDao.save(flat);
+//    }
 }
